@@ -47,3 +47,4 @@ def find_pairs(numbers, target):
 numbers = [1, 2, 3, 4, 5]
 
 print(find_pairs(numbers, 6))
+
