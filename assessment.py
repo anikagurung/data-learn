@@ -56,12 +56,22 @@ def merge_list (list1, list2):
 print(merge_list([1, 3, 5], [2, 4, 6]))
 
 #Find All Pairs in a List that Sum to a Specific Value
-def find_pairs(number, target):
-    pairs =[]
-    for i in range(len(number)):
-        for j in range(i+1, len(number)):
-            if number[i] + number[j] == target:
-                pairs.append((number[i], number[j]))
-        return pairs
-number = [1,2,3,4,5]
-print(find_pairs(number, 6))
+#def find_pairs(number, target):
+    #pairs =[]
+    #for i in range(len(number)):
+    #    for j in range(i+1, len(number)):
+   #       return pairs
+#number = [1,2,3,4,5]
+#print(find_pairs(number, 6))
+def find_pair(number, target):
+    seen = {}
+
+    for num in number:
+        needed = target - num
+        if needed in seen:
+            return (needed, num)
+        seen[num] = True
+    return None
+
+number = [1, 2, 3, 4, 5]
+print(find_pair(number, 6))
