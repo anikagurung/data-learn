@@ -9,11 +9,23 @@ print(reversed_string(text))
 
 #Find the first non-repeating character in a string.
 #Example: Input: “programming” Output: “p”
-def non_repeat():
+def non_repeat(text):
     frequency = {}
-    for text in input:
-        if text in frequency:
-            frequency[text] += 1
+
+    for char in text:
+        if char in frequency:
+            frequency[char] += 1
+        else:
+            frequency[char] = 1
+
+    for char in text:
+        if frequency[char] == 1:
+            return char
+
+    return None
+
+
+print(non_repeat("programming"))
 
 #Write a Python function to flatten a nested list.
 def flatten_list(nested_list):
