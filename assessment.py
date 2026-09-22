@@ -24,7 +24,6 @@ def non_repeat(text):
 
     return None
 
-
 print(non_repeat("programming"))
 
 #Write a Python function to flatten a nested list.
