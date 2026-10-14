@@ -1,0 +1,43 @@
+create schema test;
+
+create table test.listing(
+listid integer not null distkey,
+sellerid integer not null,
+eventid integer not null,
+dateid smallint not null  sortkey,
+numtickets smallint not null,
+priceperticket decimal(8,2),
+totalprice decimal(8,2),
+listtime timestamp);
+
+#Load data from s3 to redshift
+copy test.listing
+from 's3://mybucket/data/listings_pipe.txt'
+iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole';
+
+#Unload data from redshift to S3 in parquet
+unload ('select * from test.listing')
+to 's3://bootcamp-buct/data/listing/parquet/file'
+iam_role 'arn:aws:iam::111081800296:role/Redshift_admin'
+PARQUET;
+
+#Unload data from redshift to S3 in csv
+unload ('select * from test.listing')
+to 's3://bootcamp-bucket/data/listing/csv/file'
+iam_role 'arn:aws:iam::111081800296:role/Redshift_admin'
+csv;
+
+#Copy from parquet to S3
+create table test.listing_parquet(
+listid integer not null distkey,
+sellerid integer not null,
+eventid integer not null,
+dateid smallint not null  sortkey,
+numtickets smallint not null,
+priceperticket decimal(8,2),
+totalprice decimal(8,2),
+listtime timestamp);
+
+
+
+
