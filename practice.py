@@ -44,3 +44,22 @@ x = car.keys()
 print(x)  # before the change
 car["color"] = "white"
 print(x)  # after the change
+
+# Update dictionary values
+car["year"] = 2024
+car["color"] = "black"
+
+print("\nUpdated car details:")
+for key, value in car.items():
+    print(key, ":", value)
+
+# Add a new dictionary item
+car["owner"] = "Anika"
+print("\nCar owner:", car["owner"])
+
+# Check if a key exists
+if "brand" in car:
+    print("The car brand is", car["brand"])
+
+# GitHub practice update
+print("\nPython practice completed!")
