@@ -192,3 +192,70 @@ UNION ALL
 SELECT testproduct_id
 FROM testproducts
 ORDER BY product_id;
+```sql
+-- ============================================================
+-- 19. IS NULL AND IS NOT NULL
+-- ============================================================
+
+-- Find customers who do not have a contact name
+SELECT *
+FROM customers
+WHERE contact_name IS NULL;
+
+-- Find customers who have a contact name
+SELECT *
+FROM customers
+WHERE contact_name IS NOT NULL;
+
+
+-- ============================================================
+-- 20. ORDER BY
+-- ============================================================
+
+-- Display products from lowest to highest price
+SELECT product_name, price
+FROM products
+ORDER BY price ASC;
+
+-- Display products from highest to lowest price
+SELECT product_name, price
+FROM products
+ORDER BY price DESC;
+
+
+-- ============================================================
+-- 21. DISTINCT
+-- ============================================================
+
+-- Display unique countries from the customers table
+SELECT DISTINCT country
+FROM customers
+ORDER BY country;
+
+
+-- ============================================================
+-- 22. LIMIT
+-- ============================================================
+
+-- Display the five most expensive products
+SELECT product_name, price
+FROM products
+ORDER BY price DESC
+LIMIT 5;
+
+
+-- ============================================================
+-- 23. COUNT, AVG, MIN, MAX
+-- ============================================================
+
+-- Count the total number of customers
+SELECT COUNT(*) AS total_customers
+FROM customers;
+
+-- Find the average product price
+SELECT AVG(price) AS average_price
+FROM products;
+
+-- Find the cheapest and most expensive products
+SELECT MIN(price) AS lowest_price,
+       MAX(price)
