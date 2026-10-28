@@ -86,3 +86,15 @@ def find_pair(number, target):
 
 number = [1, 2, 3, 4, 5]
 print(find_pair(number, 6))
+
+# 8. Calculate the sum without using sum()
+def calculate_sum(numbers):
+    total = 0
+
+    for num in numbers:
+        total += num
+
+    return total
+
+
+print(calculate_sum([10, 20, 30, 40]))
