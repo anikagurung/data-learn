@@ -259,3 +259,42 @@ FROM products;
 -- Find the cheapest and most expensive products
 SELECT MIN(price) AS lowest_price,
        MAX(price)
+
+-- Day 3: SQL Aggregate Functions
+
+-- 1. Count total records
+SELECT COUNT(*)
+FROM employees;
+
+-- 2. Find the average salary
+SELECT AVG(salary)
+FROM employees;
+
+-- 3. Find the highest salary
+SELECT MAX(salary)
+FROM employees;
+
+-- 4. Find the lowest salary
+SELECT MIN(salary)
+FROM employees;
+
+-- 5. Find total salary
+SELECT SUM(salary)
+FROM employees;
+
+-- 6. Count employees in each department
+SELECT department, COUNT(*)
+FROM employees
+GROUP BY department;
+
+-- 7. Find departments with more than 5 employees
+SELECT department, COUNT(*)
+FROM employees
+GROUP BY department
+HAVING COUNT(*) > 5;
+
+-- 8. Display departments in alphabetical order
+SELECT department, COUNT(*)
+FROM employees
+GROUP BY department
+ORDER BY department;
